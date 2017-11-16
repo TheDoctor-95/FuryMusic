@@ -87,7 +87,12 @@ public class ArtistResource {
     public List<Artist> getAllArtists() {
         log.debug("REST request to get all Artists");
         return artistRepository.findAll();
-        }
+    }
+
+    public List<Artist> getAllArtistsByName(@PathVariable String name) {
+        log.debug("REST request to get all Artists");
+        return artistRepository.findByNameContaining(name);
+    }
 
     /**
      * GET  /artists/:id : get the "id" artist.

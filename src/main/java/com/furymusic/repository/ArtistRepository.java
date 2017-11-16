@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
 
+import java.util.List;
+
 
 /**
  * Spring Data JPA repository for the Artist entity.
@@ -12,5 +14,8 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, Long> {
+
+    List<Artist> findByNameContaining(String name);
+
 
 }
