@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "artistBandStatus" : {
+            "home": {
+                "title": "Artist Band Statuses",
+                "createLabel": "Crear nuevo Artist Band Status",
+                "createOrEditLabel": "Crear o editar Artist Band Status"
+            },
+            "created": "Un nuevo Artist Band Status ha sido creado con el identificador {{ param }}",
+            "updated": "Un Artist Band Status ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Artist Band Status ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Artist Band Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Artist Band Status"
+            },
+            "incorporationDate": "Incorporation Date",
+            "leavingDate": "Leaving Date",
+            "artist": "Artist",
+            "band": "Band"
+        }
+    }
+}

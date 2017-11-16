@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userExt"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "country",
+            "otherEntityName": "country",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "locationGoogleMaps",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171116103655",
+    "entityTableName": "user_ext",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,74 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "country",
+            "otherEntityName": "country",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "band",
+            "relationshipName": "genre",
+            "otherEntityName": "genre",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "favoriteBand",
+            "otherEntityName": "favouriteBand",
+            "otherEntityRelationshipName": "band"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "hatred",
+            "otherEntityName": "hatred",
+            "otherEntityRelationshipName": "band"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "concerts",
+            "otherEntityName": "concerts",
+            "otherEntityRelationshipName": "band"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "social",
+            "otherEntityName": "social",
+            "otherEntityRelationshipName": "band"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "artistBandStatus",
+            "otherEntityName": "artistBandStatus",
+            "otherEntityRelationshipName": "band"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "img",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20171116103705",
+    "entityTableName": "band",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

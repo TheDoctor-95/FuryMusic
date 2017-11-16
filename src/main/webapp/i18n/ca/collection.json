@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "collection" : {
+            "home": {
+                "title": "Collections",
+                "createLabel": "Create a new Collection",
+                "createOrEditLabel": "Create or edit a Collection"
+            },
+            "created": "A new Collection is created with identifier {{ param }}",
+            "updated": "A Collection is updated with identifier {{ param }}",
+            "deleted": "A Collection is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Collection {{ id }}?"
+            },
+            "detail": {
+                "title": "Collection"
+            },
+            "name": "Name",
+            "description": "Description",
+            "user": "User",
+            "song": "Song"
+        }
+    }
+}

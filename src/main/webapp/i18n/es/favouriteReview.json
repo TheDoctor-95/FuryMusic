@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "favouriteReview" : {
+            "home": {
+                "title": "Favourite Reviews",
+                "createLabel": "Crear nuevo Favourite Review",
+                "createOrEditLabel": "Crear o editar Favourite Review"
+            },
+            "created": "Un nuevo Favourite Review ha sido creado con el identificador {{ param }}",
+            "updated": "Un Favourite Review ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Favourite Review ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Favourite Review {{ id }}?"
+            },
+            "detail": {
+                "title": "Favourite Review"
+            },
+            "liked": "Liked",
+            "date": "Date",
+            "review": "Review",
+            "user": "User"
+        }
+    }
+}

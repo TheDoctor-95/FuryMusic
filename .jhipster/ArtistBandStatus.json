@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "artist",
+            "otherEntityName": "artist",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "band",
+            "otherEntityName": "band",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "incorporationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "leavingDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20171116103704",
+    "entityTableName": "artist_band_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

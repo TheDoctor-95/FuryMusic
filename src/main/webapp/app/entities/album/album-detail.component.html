@@ -1,0 +1,48 @@
+
+<div *ngIf="album">
+    <h2><span jhiTranslate="furyMusicApp.album.detail.title">Album</span> {{album.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.album.name">Name</span></dt>
+        <dd>
+            <span>{{album.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.album.releaseDate">Release Date</span></dt>
+        <dd>
+            <span>{{album.releaseDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.album.description">Description</span></dt>
+        <dd>
+            <span>{{album.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.album.img">Img</span></dt>
+        <dd>
+            <div *ngIf="album.img">
+                <a (click)="openFile(album.imgContentType, album.img)">
+                    <img [src]="'data:' + album.imgContentType + ';base64,' + album.img" style="max-width: 100%;" alt="album image"/>
+                </a>
+                {{album.imgContentType}}, {{byteSize(album.img)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.album.albumType">Album Type</span></dt>
+        <dd>
+            <div *ngIf="album.albumType">
+                <a [routerLink]="['/album-types', album.albumType?.id]">{{album.albumType?.type}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'album/'+ album.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

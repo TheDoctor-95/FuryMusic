@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "country",
+            "otherEntityName": "country",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "favouriteArtist",
+            "otherEntityName": "favouriteArtist",
+            "otherEntityRelationshipName": "artist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "concerts",
+            "otherEntityName": "concerts",
+            "otherEntityRelationshipName": "artist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "social",
+            "otherEntityName": "social",
+            "otherEntityRelationshipName": "artist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "artistBandStatus",
+            "otherEntityName": "artistBandStatus",
+            "otherEntityRelationshipName": "artist"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "surname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthdate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "sex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alive",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "deathdate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "img",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20171116103703",
+    "entityTableName": "artist",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

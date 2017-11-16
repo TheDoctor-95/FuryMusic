@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "otherEntityRelationshipName": "albumType"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171116103658",
+    "entityTableName": "album_types",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

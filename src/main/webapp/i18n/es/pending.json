@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "pending" : {
+            "home": {
+                "title": "Pendings",
+                "createLabel": "Crear nuevo Pending",
+                "createOrEditLabel": "Crear o editar Pending"
+            },
+            "created": "Un nuevo Pending ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pending ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pending ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Pending {{ id }}?"
+            },
+            "detail": {
+                "title": "Pending"
+            },
+            "pending": "Pending",
+            "date": "Date",
+            "user": "User",
+            "album": "Album"
+        }
+    }
+}

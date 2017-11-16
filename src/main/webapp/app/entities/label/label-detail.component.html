@@ -1,0 +1,40 @@
+
+<div *ngIf="label">
+    <h2><span jhiTranslate="furyMusicApp.label.detail.title">Label</span> {{label.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.label.name">Name</span></dt>
+        <dd>
+            <span>{{label.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.label.img">Img</span></dt>
+        <dd>
+            <div *ngIf="label.img">
+                <a (click)="openFile(label.imgContentType, label.img)">
+                    <img [src]="'data:' + label.imgContentType + ';base64,' + label.img" style="max-width: 100%;" alt="label image"/>
+                </a>
+                {{label.imgContentType}}, {{byteSize(label.img)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.label.country">Country</span></dt>
+        <dd>
+            <div *ngIf="label.country">
+                <a [routerLink]="['/country', label.country?.id]">{{label.country?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'label/'+ label.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

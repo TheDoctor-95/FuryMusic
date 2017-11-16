@@ -1,0 +1,41 @@
+
+<div *ngIf="artistBandStatus">
+    <h2><span jhiTranslate="furyMusicApp.artistBandStatus.detail.title">Artist Band Status</span> {{artistBandStatus.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.artistBandStatus.incorporationDate">Incorporation Date</span></dt>
+        <dd>
+            <span>{{artistBandStatus.incorporationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.artistBandStatus.leavingDate">Leaving Date</span></dt>
+        <dd>
+            <span>{{artistBandStatus.leavingDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.artistBandStatus.artist">Artist</span></dt>
+        <dd>
+            <div *ngIf="artistBandStatus.artist">
+                <a [routerLink]="['/artist', artistBandStatus.artist?.id]">{{artistBandStatus.artist?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.artistBandStatus.band">Band</span></dt>
+        <dd>
+            <div *ngIf="artistBandStatus.band">
+                <a [routerLink]="['/band', artistBandStatus.band?.id]">{{artistBandStatus.band?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'artist-band-status/'+ artistBandStatus.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

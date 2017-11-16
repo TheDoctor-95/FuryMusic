@@ -1,0 +1,69 @@
+<div>
+    <h2>
+        <span jhiTranslate="furyMusicApp.label.home.title">Labels</span>
+        <button class="btn btn-primary float-right jh-create-entity create-label" [routerLink]="['/', { outlets: { popup: ['label-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="furyMusicApp.label.home.createLabel">
+            Create new Label
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="labels">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="furyMusicApp.label.name">Name</span></th>
+            <th><span jhiTranslate="furyMusicApp.label.img">Img</span></th>
+            <th><span jhiTranslate="furyMusicApp.label.country">Country</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let label of labels ;trackBy: trackId">
+                <td><a [routerLink]="['../label', label.id ]">{{label.id}}</a></td>
+                <td>{{label.name}}</td>
+                <td>
+                    <a *ngIf="label.img" (click)="openFile(label.imgContentType, label.img)">
+                        <img [src]="'data:' + label.imgContentType + ';base64,' + label.img" style="max-height: 30px;" alt="label image"/>
+                    </a>
+                    <span *ngIf="label.img">{{label.imgContentType}}, {{byteSize(label.img)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="label.country">
+                        <a [routerLink]="['../country', label.country?.id ]" >{{label.country?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../label', label.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'label/'+ label.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'label/'+ label.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

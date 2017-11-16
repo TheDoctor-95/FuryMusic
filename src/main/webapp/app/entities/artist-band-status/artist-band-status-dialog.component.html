@@ -1,0 +1,59 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myArtistBandStatusLabel" jhiTranslate="furyMusicApp.artistBandStatus.home.createOrEditLabel">Create or edit a Artist Band Status</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!artistBandStatus.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="artistBandStatus.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.artistBandStatus.incorporationDate" for="field_incorporationDate">Incorporation Date</label>
+            <div class="input-group">
+                <input id="field_incorporationDate" type="text" class="form-control" name="incorporationDate" ngbDatepicker  #incorporationDateDp="ngbDatepicker" [(ngModel)]="artistBandStatus.incorporationDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="incorporationDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.artistBandStatus.leavingDate" for="field_leavingDate">Leaving Date</label>
+            <div class="input-group">
+                <input id="field_leavingDate" type="text" class="form-control" name="leavingDate" ngbDatepicker  #leavingDateDp="ngbDatepicker" [(ngModel)]="artistBandStatus.leavingDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="leavingDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.artistBandStatus.artist" for="field_artist">Artist</label>
+            <select class="form-control" id="field_artist" name="artist" [(ngModel)]="artistBandStatus.artist" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="artistOption.id === artistBandStatus.artist?.id ? artistBandStatus.artist : artistOption" *ngFor="let artistOption of artists; trackBy: trackArtistById">{{artistOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.artistBandStatus.band" for="field_band">Band</label>
+            <select class="form-control" id="field_band" name="band" [(ngModel)]="artistBandStatus.band" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="bandOption.id === artistBandStatus.band?.id ? artistBandStatus.band : bandOption" *ngFor="let bandOption of bands; trackBy: trackBandById">{{bandOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

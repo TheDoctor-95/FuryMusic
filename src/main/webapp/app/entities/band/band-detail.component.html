@@ -1,0 +1,54 @@
+
+<div *ngIf="band">
+    <h2><span jhiTranslate="furyMusicApp.band.detail.title">Band</span> {{band.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.band.name">Name</span></dt>
+        <dd>
+            <span>{{band.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.band.creationDate">Creation Date</span></dt>
+        <dd>
+            <span>{{band.creationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.band.active">Active</span></dt>
+        <dd>
+            <span>{{band.active}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.band.img">Img</span></dt>
+        <dd>
+            <div *ngIf="band.img">
+                <a (click)="openFile(band.imgContentType, band.img)">
+                    <img [src]="'data:' + band.imgContentType + ';base64,' + band.img" style="max-width: 100%;" alt="band image"/>
+                </a>
+                {{band.imgContentType}}, {{byteSize(band.img)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.band.country">Country</span></dt>
+        <dd>
+            <div *ngIf="band.country">
+                <a [routerLink]="['/country', band.country?.id]">{{band.country?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.band.genre">Genre</span></dt>
+        <dd>
+            <span *ngFor="let genre of band.genres; let last = last">
+                <a [routerLink]="['/genre', genre?.id ]">{{genre.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'band/'+ band.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "userExt",
+            "otherEntityName": "userExt",
+            "otherEntityRelationshipName": "country"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "artist",
+            "otherEntityName": "artist",
+            "otherEntityRelationshipName": "country"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "band",
+            "otherEntityName": "band",
+            "otherEntityRelationshipName": "country"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "label",
+            "otherEntityName": "label",
+            "otherEntityRelationshipName": "country"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "urlGoogleMaps",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171116103656",
+    "entityTableName": "country",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

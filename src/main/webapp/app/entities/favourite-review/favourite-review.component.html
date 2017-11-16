@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="furyMusicApp.favouriteReview.home.title">Favourite Reviews</span>
+        <button class="btn btn-primary float-right jh-create-entity create-favourite-review" [routerLink]="['/', { outlets: { popup: ['favourite-review-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="furyMusicApp.favouriteReview.home.createLabel">
+            Create new Favourite Review
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="favouriteReviews">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="furyMusicApp.favouriteReview.liked">Liked</span></th>
+            <th><span jhiTranslate="furyMusicApp.favouriteReview.date">Date</span></th>
+            <th><span jhiTranslate="furyMusicApp.favouriteReview.review">Review</span></th>
+            <th><span jhiTranslate="furyMusicApp.favouriteReview.user">User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let favouriteReview of favouriteReviews ;trackBy: trackId">
+                <td><a [routerLink]="['../favourite-review', favouriteReview.id ]">{{favouriteReview.id}}</a></td>
+                <td>{{favouriteReview.liked}}</td>
+                <td>{{favouriteReview.date | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="favouriteReview.review">
+                        <a [routerLink]="['../review', favouriteReview.review?.id ]" >{{favouriteReview.review?.title}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{favouriteReview.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../favourite-review', favouriteReview.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'favourite-review/'+ favouriteReview.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'favourite-review/'+ favouriteReview.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

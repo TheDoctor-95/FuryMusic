@@ -1,0 +1,39 @@
+
+<div *ngIf="collection">
+    <h2><span jhiTranslate="furyMusicApp.collection.detail.title">Collection</span> {{collection.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.collection.name">Name</span></dt>
+        <dd>
+            <span>{{collection.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.collection.description">Description</span></dt>
+        <dd>
+            <span>{{collection.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.collection.user">User</span></dt>
+        <dd>
+            {{collection.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.collection.song">Song</span></dt>
+        <dd>
+            <span *ngFor="let song of collection.songs; let last = last">
+                <a [routerLink]="['/song', song?.id ]">{{song.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'collection/'+ collection.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

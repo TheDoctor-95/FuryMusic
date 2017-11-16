@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "pending",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20171116103714",
+    "entityTableName": "pending",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

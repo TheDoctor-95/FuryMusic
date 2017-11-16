@@ -1,0 +1,39 @@
+
+<div *ngIf="favouriteLabel">
+    <h2><span jhiTranslate="furyMusicApp.favouriteLabel.detail.title">Favourite Label</span> {{favouriteLabel.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.favouriteLabel.liked">Liked</span></dt>
+        <dd>
+            <span>{{favouriteLabel.liked}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.favouriteLabel.date">Date</span></dt>
+        <dd>
+            <span>{{favouriteLabel.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.favouriteLabel.label">Label</span></dt>
+        <dd>
+            <div *ngIf="favouriteLabel.label">
+                <a [routerLink]="['/label', favouriteLabel.label?.id]">{{favouriteLabel.label?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.favouriteLabel.user">User</span></dt>
+        <dd>
+            {{favouriteLabel.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'favourite-label/'+ favouriteLabel.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

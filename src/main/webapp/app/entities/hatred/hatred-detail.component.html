@@ -1,0 +1,39 @@
+
+<div *ngIf="hatred">
+    <h2><span jhiTranslate="furyMusicApp.hatred.detail.title">Hatred</span> {{hatred.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.hatred.hated">Hated</span></dt>
+        <dd>
+            <span>{{hatred.hated}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.hatred.date">Date</span></dt>
+        <dd>
+            <span>{{hatred.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.hatred.user">User</span></dt>
+        <dd>
+            {{hatred.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.hatred.band">Band</span></dt>
+        <dd>
+            <div *ngIf="hatred.band">
+                <a [routerLink]="['/band', hatred.band?.id]">{{hatred.band?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'hatred/'+ hatred.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

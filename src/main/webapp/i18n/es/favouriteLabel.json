@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "favouriteLabel" : {
+            "home": {
+                "title": "Favourite Labels",
+                "createLabel": "Crear nuevo Favourite Label",
+                "createOrEditLabel": "Crear o editar Favourite Label"
+            },
+            "created": "Un nuevo Favourite Label ha sido creado con el identificador {{ param }}",
+            "updated": "Un Favourite Label ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Favourite Label ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Favourite Label {{ id }}?"
+            },
+            "detail": {
+                "title": "Favourite Label"
+            },
+            "liked": "Liked",
+            "date": "Date",
+            "label": "Label",
+            "user": "User"
+        }
+    }
+}

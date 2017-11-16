@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="furyMusicApp.artistBandStatus.home.title">Artist Band Statuses</span>
+        <button class="btn btn-primary float-right jh-create-entity create-artist-band-status" [routerLink]="['/', { outlets: { popup: ['artist-band-status-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="furyMusicApp.artistBandStatus.home.createLabel">
+            Create new Artist Band Status
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="artistBandStatuses">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="furyMusicApp.artistBandStatus.incorporationDate">Incorporation Date</span></th>
+            <th><span jhiTranslate="furyMusicApp.artistBandStatus.leavingDate">Leaving Date</span></th>
+            <th><span jhiTranslate="furyMusicApp.artistBandStatus.artist">Artist</span></th>
+            <th><span jhiTranslate="furyMusicApp.artistBandStatus.band">Band</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let artistBandStatus of artistBandStatuses ;trackBy: trackId">
+                <td><a [routerLink]="['../artist-band-status', artistBandStatus.id ]">{{artistBandStatus.id}}</a></td>
+                <td>{{artistBandStatus.incorporationDate | date:'mediumDate'}}</td>
+                <td>{{artistBandStatus.leavingDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="artistBandStatus.artist">
+                        <a [routerLink]="['../artist', artistBandStatus.artist?.id ]" >{{artistBandStatus.artist?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="artistBandStatus.band">
+                        <a [routerLink]="['../band', artistBandStatus.band?.id ]" >{{artistBandStatus.band?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../artist-band-status', artistBandStatus.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'artist-band-status/'+ artistBandStatus.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'artist-band-status/'+ artistBandStatus.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

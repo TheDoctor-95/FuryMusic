@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "band",
+            "otherEntityName": "band",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "artist",
+            "otherEntityName": "artist",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "place",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "longitud",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "urlGoogle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20171116103716",
+    "entityTableName": "concerts",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,57 @@
+
+<div *ngIf="concerts">
+    <h2><span jhiTranslate="furyMusicApp.concerts.detail.title">Concerts</span> {{concerts.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.concerts.name">Name</span></dt>
+        <dd>
+            <span>{{concerts.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.place">Place</span></dt>
+        <dd>
+            <span>{{concerts.place}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{concerts.latitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.longitud">Longitud</span></dt>
+        <dd>
+            <span>{{concerts.longitud}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.urlGoogle">Url Google</span></dt>
+        <dd>
+            <span>{{concerts.urlGoogle}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.date">Date</span></dt>
+        <dd>
+            <span>{{concerts.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.band">Band</span></dt>
+        <dd>
+            <div *ngIf="concerts.band">
+                <a [routerLink]="['/band', concerts.band?.id]">{{concerts.band?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.concerts.artist">Artist</span></dt>
+        <dd>
+            <div *ngIf="concerts.artist">
+                <a [routerLink]="['/artist', concerts.artist?.id]">{{concerts.artist?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'concerts/'+ concerts.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

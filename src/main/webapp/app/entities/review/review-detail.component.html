@@ -1,0 +1,39 @@
+
+<div *ngIf="review">
+    <h2><span jhiTranslate="furyMusicApp.review.detail.title">Review</span> {{review.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.review.date">Date</span></dt>
+        <dd>
+            <span>{{review.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.review.title">Title</span></dt>
+        <dd>
+            <span>{{review.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.review.review">Review</span></dt>
+        <dd>
+            <span>{{review.review}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.review.album">Album</span></dt>
+        <dd>
+            <div *ngIf="review.album">
+                <a [routerLink]="['/album', review.album?.id]">{{review.album?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'review/'+ review.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

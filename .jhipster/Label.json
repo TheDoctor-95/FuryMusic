@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "country",
+            "otherEntityName": "country",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "favouriteLabel",
+            "otherEntityName": "favouriteLabel",
+            "otherEntityRelationshipName": "label"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "img",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20171116103700",
+    "entityTableName": "label",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

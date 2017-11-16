@@ -1,0 +1,22 @@
+{
+    "furyMusicApp": {
+        "albumTypes" : {
+            "home": {
+                "title": "Album Types",
+                "createLabel": "Crear nuevo Album Types",
+                "createOrEditLabel": "Crear o editar Album Types"
+            },
+            "created": "Un nuevo Album Types ha sido creado con el identificador {{ param }}",
+            "updated": "Un Album Types ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Album Types ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Album Types {{ id }}?"
+            },
+            "detail": {
+                "title": "Album Types"
+            },
+            "type": "Type",
+            "album": "Album"
+        }
+    }
+}

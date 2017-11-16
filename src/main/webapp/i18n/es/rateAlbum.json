@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "rateAlbum" : {
+            "home": {
+                "title": "Rate Albums",
+                "createLabel": "Crear nuevo Rate Album",
+                "createOrEditLabel": "Crear o editar Rate Album"
+            },
+            "created": "Un nuevo Rate Album ha sido creado con el identificador {{ param }}",
+            "updated": "Un Rate Album ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Rate Album ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Rate Album {{ id }}?"
+            },
+            "detail": {
+                "title": "Rate Album"
+            },
+            "rate": "Rate",
+            "date": "Date",
+            "album": "Album",
+            "user": "User"
+        }
+    }
+}

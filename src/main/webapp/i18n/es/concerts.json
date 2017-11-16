@@ -1,0 +1,28 @@
+{
+    "furyMusicApp": {
+        "concerts" : {
+            "home": {
+                "title": "Concerts",
+                "createLabel": "Crear nuevo Concerts",
+                "createOrEditLabel": "Crear o editar Concerts"
+            },
+            "created": "Un nuevo Concerts ha sido creado con el identificador {{ param }}",
+            "updated": "Un Concerts ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Concerts ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Concerts {{ id }}?"
+            },
+            "detail": {
+                "title": "Concerts"
+            },
+            "name": "Name",
+            "place": "Place",
+            "latitude": "Latitude",
+            "longitud": "Longitud",
+            "urlGoogle": "Url Google",
+            "date": "Date",
+            "band": "Band",
+            "artist": "Artist"
+        }
+    }
+}

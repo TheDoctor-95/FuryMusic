@@ -1,0 +1,24 @@
+{
+    "furyMusicApp": {
+        "hatred" : {
+            "home": {
+                "title": "Hatreds",
+                "createLabel": "Create a new Hatred",
+                "createOrEditLabel": "Create or edit a Hatred"
+            },
+            "created": "A new Hatred is created with identifier {{ param }}",
+            "updated": "A Hatred is updated with identifier {{ param }}",
+            "deleted": "A Hatred is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Hatred {{ id }}?"
+            },
+            "detail": {
+                "title": "Hatred"
+            },
+            "hated": "Hated",
+            "date": "Date",
+            "user": "User",
+            "band": "Band"
+        }
+    }
+}

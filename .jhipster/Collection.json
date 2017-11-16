@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "collection",
+            "relationshipName": "song",
+            "otherEntityName": "song",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171116103715",
+    "entityTableName": "collection",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

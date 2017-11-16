@@ -1,0 +1,25 @@
+{
+    "furyMusicApp": {
+        "review" : {
+            "home": {
+                "title": "Reviews",
+                "createLabel": "Crear nuevo Review",
+                "createOrEditLabel": "Crear o editar Review"
+            },
+            "created": "Un nuevo Review ha sido creado con el identificador {{ param }}",
+            "updated": "Un Review ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Review ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Review {{ id }}?"
+            },
+            "detail": {
+                "title": "Review"
+            },
+            "date": "Date",
+            "title": "Title",
+            "review": "Review",
+            "album": "Album",
+            "favouriteReview": "Favourite Review"
+        }
+    }
+}

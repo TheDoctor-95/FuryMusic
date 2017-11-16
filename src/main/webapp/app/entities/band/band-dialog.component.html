@@ -1,0 +1,75 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBandLabel" jhiTranslate="furyMusicApp.band.home.createOrEditLabel">Create or edit a Band</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!band.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="band.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.band.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="band.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.band.creationDate" for="field_creationDate">Creation Date</label>
+            <div class="input-group">
+                <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" [(ngModel)]="band.creationDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="creationDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.band.active" for="field_active">Active</label>
+            <input type="checkbox" class="form-control" name="active" id="field_active"
+                [(ngModel)]="band.active"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.band.img" for="field_img">Img</label>
+            <div>
+                <img [src]="'data:' + band.imgContentType + ';base64,' + band.img" style="max-height: 100px;" *ngIf="band.img" alt="band image"/>
+                <div *ngIf="band.img" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{band.imgContentType}}, {{byteSize(band.img)}}</span>
+                    <button type="button" (click)="clearInputImage('img', 'imgContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_img" (change)="setFileData($event, band, 'img', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="img" id="field_img"
+                [(ngModel)]="band.img"  />
+            <input type="hidden" class="form-control" name="imgContentType" id="field_imgContentType"
+                [(ngModel)]="band.imgContentType" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="furyMusicApp.band.country" for="field_country">Country</label>
+            <select class="form-control" id="field_country" name="country" [(ngModel)]="band.country" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="countryOption.id === band.country?.id ? band.country : countryOption" *ngFor="let countryOption of countries; trackBy: trackCountryById">{{countryOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="furyMusicApp.band.genre" for="field_genre">Genre</label>
+            <select class="form-control" id="field_genre" multiple name="genre" [(ngModel)]="band.genres">
+                <option [ngValue]="getSelected(band.genres, genreOption)" *ngFor="let genreOption of genres; trackBy: trackGenreById">{{genreOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

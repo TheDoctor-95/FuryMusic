@@ -1,0 +1,35 @@
+
+<div *ngIf="song">
+    <h2><span jhiTranslate="furyMusicApp.song.detail.title">Song</span> {{song.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="furyMusicApp.song.name">Name</span></dt>
+        <dd>
+            <span>{{song.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.song.duration">Duration</span></dt>
+        <dd>
+            <span>{{song.duration}}</span>
+        </dd>
+        <dt><span jhiTranslate="furyMusicApp.song.album">Album</span></dt>
+        <dd>
+            <span *ngFor="let album of song.albums; let last = last">
+                <a [routerLink]="['/album', album?.id ]">{{album.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'song/'+ song.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

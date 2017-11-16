@@ -1,0 +1,31 @@
+{
+    "furyMusicApp": {
+        "band" : {
+            "home": {
+                "title": "Bands",
+                "createLabel": "Create a new Band",
+                "createOrEditLabel": "Create or edit a Band"
+            },
+            "created": "A new Band is created with identifier {{ param }}",
+            "updated": "A Band is updated with identifier {{ param }}",
+            "deleted": "A Band is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Band {{ id }}?"
+            },
+            "detail": {
+                "title": "Band"
+            },
+            "name": "Name",
+            "creationDate": "Creation Date",
+            "active": "Active",
+            "img": "Img",
+            "country": "Country",
+            "genre": "Genre",
+            "favoriteBand": "Favorite Band",
+            "hatred": "Hatred",
+            "concerts": "Concerts",
+            "social": "Social",
+            "artistBandStatus": "Artist Band Status"
+        }
+    }
+}
