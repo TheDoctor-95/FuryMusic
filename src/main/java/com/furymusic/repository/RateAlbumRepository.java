@@ -22,7 +22,7 @@ public interface RateAlbumRepository extends JpaRepository<RateAlbum, Long> {
     List<RateAlbum> findByUserIsCurrentUser();
 
 
-    @Query("select new org.furymusic.service.dto.AlbumRateStats(rateAlbum.album, avg(rateAlbum.rate), max(rateAlbum.rate), min(rateAlbum.rate)) " +
+    @Query("select new com.furymusic.service.dto.AlbumRateStats(rateAlbum.album, avg(rateAlbum.rate), max(rateAlbum.rate), min(rateAlbum.rate)) " +
         "from RateAlbum rateAlbum where rateAlbum.album.id = :albumId")
     AlbumRateStats findAlbumStats(@Param("albumId") Long id);
 

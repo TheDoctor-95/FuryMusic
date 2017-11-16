@@ -3,7 +3,9 @@ package com.furymusic.web.rest;
 import com.furymusic.FuryMusicApp;
 
 import com.furymusic.domain.RateAlbum;
+import com.furymusic.repository.AlbumRepository;
 import com.furymusic.repository.RateAlbumRepository;
+import com.furymusic.repository.UserRepository;
 import com.furymusic.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -53,6 +55,12 @@ public class RateAlbumResourceIntTest {
     private RateAlbumRepository rateAlbumRepository;
 
     @Autowired
+    private AlbumRepository albumRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -71,7 +79,7 @@ public class RateAlbumResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final RateAlbumResource rateAlbumResource = new RateAlbumResource(rateAlbumRepository);
+        final RateAlbumResource rateAlbumResource = new RateAlbumResource(rateAlbumRepository, albumRepository, userRepository);
         this.restRateAlbumMockMvc = MockMvcBuilders.standaloneSetup(rateAlbumResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
